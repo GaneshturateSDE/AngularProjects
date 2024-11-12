@@ -1,0 +1,41 @@
+<div class="col-4 mx-auto">
+
+    <main class="form-signin ">
+        <form class="mt-5" [formGroup]="registerForm">
+            
+            <h1 class="h3 mb-3 fw-normal text-center"> Registration</h1>
+            <div class="form-floating mb-3">
+                <input type="email" formControlName="fullName" class="form-control" id="fullName" placeholder="name@example.com">
+                <label for="fullName">Full Name</label>
+                 @if(registerForm.controls['fullName'].errors?.['pattern']){
+                       <span class="text-danger">invalid name</span>
+                 }
+            </div>
+            <div class="form-floating mb-3">
+                <input type="email" formControlName="companyName" class="form-control" id="companyName" placeholder="name@example.com">
+                <label for="companyName">Company Name</label>
+                @if(registerForm.controls['companyName'].errors?.['pattern']){
+                    <span class="text-danger">invalid companyname</span>
+              }
+            </div>
+            <div class="form-floating mb-3">
+                <input type="email" formControlName="email" class="form-control" id="email" placeholder="name@example.com">
+                <label for="email">Email address</label>
+                @if(registerForm.controls['email'].errors?.['pattern']){
+                    <span class="text-danger">invalid email</span>
+              }
+            </div>
+            <div class="form-floating mb-4">
+                <input type="password" formControlName="password" class="form-control" id="password" placeholder="Password">
+                <label for="password">Password</label>
+                @if(registerForm.controls['password'].errors?.['pattern']){
+                    <span class="text-danger fs-6">invalid password must 8-20 characters small,capital letters </span>
+              }
+            </div>
+            
+            
+            <button class="w-100 btn btn-lg btn-primary" [disabled]="registerForm.invalid" (click)="onRegisterUser()" type="button">Sign Up</button>
+            
+        </form>
+    </main>
+</div>
